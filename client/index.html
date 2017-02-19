@@ -2,81 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <title>Simple Simon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <title></title>
   </head>
-
   <body>
-    <div id="kotak" class="ui container stacked segment text">
-      <div class="ui grid">
-        <div class="six wide column">
-          <button id="button" class="ui button">
-            Random
-          </button>
-        </div>
-        <div class="ten wide column">
-          <h3>Simple Simon Says</h3>
+    <div class="container">
+      <div class="row">
+        <h2>Mini Memo</h2>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <input id="judul" type="text" class="validate" >
+          <label>Title</label>
         </div>
       </div>
       <div class="row">
-        <div class="ui grid">
-          <div class="three column row">
-            <div class="column">
-              <div id="1" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="2" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="3" class="box"></div>
-            </div>
-          </div>
+        <div class="input-field col s8">
+          <textarea id="isi" class="materialize-textarea"></textarea>
+          <label>Text</label>
         </div>
       </div>
       <div class="row">
-        <div class="ui grid">
-          <div class="three column row">
-            <div class="column">
-              <div id="4" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="5" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="6" class="box"></div>
-            </div>
-          </div>
-        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action" onclick="buatArtikel()">Save</button>
       </div>
-      <div class="row">
-        <div class="ui grid">
-          <div class="three column row">
-            <div class="column">
-              <div id="7" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="8" class="box"></div>
-            </div>
-            <div class="column">
-              <div id="9" class="box"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
-    <script>
-    $('#button').click(function(){
-      $.ajax({
-        url: 'http://localhost:3000/color',
-        type: 'GET',
-        success: function(res){
-          console.log(res);
-          $(`#${res.index}`).css("background-color", `${res.color}`)
-        }
-      })
-    })
-    </script>
+
+    <div id="wrapper" class="container">
+    </div>
+
   </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="script/index.js"></script>
+
 </html>

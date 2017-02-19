@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 
 var blogSchema = new Schema({
   judul   : String,
-  penulis : String,
   isi     : String
 });
 

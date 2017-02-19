@@ -15,7 +15,6 @@ function ready () {
                <p>${item.isi}</p>
              </div>
              <div class="card-action">
-               <a href="#">${item.penulis}</a>
                <div class="row">
                  <a class="waves-effect waves-light btn red lighten-2" onclick="hapusArtikel('${item._id}')">Delete</a>
                  <a class="update waves-effect waves-light btn green lighten-2" href="#modal${item._id}">Update</a>
@@ -31,19 +30,13 @@ function ready () {
             <div class="row">
               <div class="input-field col s12">
                 <input id="judul${item._id}" type="text" class="validate" value="${item.judul}">
-                <label>Judul</label>
+                <label>Title</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <textarea id="isi${item._id}" class="materialize-textarea">${item.isi}</textarea>
-                <label>Resensi</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="penulis${item._id}" type="text" class="validate" value="${item.penulis}">
-                <label>Penulis</label>
+                <label>Text</label>
               </div>
             </div>
           </div>
@@ -71,13 +64,11 @@ function buatArtikel () {
     url: 'http://localhost:3000/artikel',
     data: {
       judul : $('#judul').val(),
-      isi : $('#isi').val(),
-      penulis : $('#penulis').val()
+      isi : $('#isi').val()
     },
     success: function (data) {
       $('#judul').val(""),
       $('#isi').val(""),
-      $('#penulis').val(""),
       ready()
     },
     error: function (err) {
@@ -92,8 +83,7 @@ function updateArtikel (xxx) {
     url: 'http://localhost:3000/artikel/'+xxx,
     data: {
       judul : $('#judul'+xxx).val(),
-      isi : $('#isi'+xxx).val(),
-      penulis : $('#penulis'+xxx).val()
+      isi : $('#isi'+xxx).val()
     },
     success: function (data) {
       ready()
@@ -110,7 +100,7 @@ function hapusArtikel (ccc) {
     type: 'DELETE',
     url: 'http://localhost:3000/artikel/'+ccc,
     success: function (data) {
-      alert('Data berhasil dihapus')
+      confirm('Are you sure to delete this memo?')
       $(`#item-id-${ccc}`).remove()
     },
     error: function (err) {

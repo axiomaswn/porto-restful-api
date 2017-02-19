@@ -3,8 +3,7 @@ module.exports = {
   create : function(req, res, next){
     Blog.create({
       judul : req.body.judul,
-      isi : req.body.isi,
-      penulis : req.body.penulis
+      isi : req.body.isi
     }, function (err, data){
       res.send(data);
     })
@@ -26,8 +25,7 @@ module.exports = {
   update : function(req, res, next) {
     Blog.findOneAndUpdate({_id: req.params.id},{
       judul : req.body.judul,
-      isi : req.body.isi,
-      penulis : req.body.penulis})
+      isi : req.body.isi})
       .then(function(result){
         res.send(result)
         // console.log(res);

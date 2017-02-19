@@ -9,7 +9,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/artikel');
+mongoose.connect('mongodb://localhost/mini-memo');
+mongoose.Promise = global.Promise;
 
 var app = express();
 

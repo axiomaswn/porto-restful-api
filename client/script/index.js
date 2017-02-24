@@ -100,7 +100,7 @@ function hapusArtikel (ccc) {
     type: 'DELETE',
     url: 'http://localhost:3000/artikel/'+ccc,
     success: function (data) {
-      confirm('Are you sure to delete this memo?')
+      alert('Memo has been deleted')
       $(`#item-id-${ccc}`).remove()
     },
     error: function (err) {
